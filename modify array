@@ -1,0 +1,104 @@
+<html>
+<head>
+<title> Assignment 3</title>
+<style>
+	.btnDisable{
+		
+}
+.btnNormal{
+	display: show;
+}
+.btnHideShow{
+	display: none;
+}
+</style>
+
+
+
+</head>
+<body>
+<input type="text" onblur="fn()" placeholder="Enter an element" id="textBox" >
+<Br/>
+<div id='newArr' ></div>
+<br/>
+<span id='result'></span>
+<button id="modify" onclick="modifyIt()">modify</button>
+
+<button id="dlt" onclick="deleteIt()">delete</button>
+
+<div id="dispArr"></div>
+
+
+<script>
+
+	var arr=[];
+	//random element in array creation
+	for(var i=0;i<10;i++){
+		arr[i]=Math.floor(Math.random()*10);
+	}
+
+window.onload=function(){
+	
+	var y=document.getElementById('modify').className='btnHideShow';
+	var z=document.getElementById('dlt').className='btnHideShow';
+	display();
+
+}
+	function display(){
+		var z=document.getElementById('dispArr');
+	for(var i=0;i<10;i++){
+	z.innerHTML=arr.join(" ");
+	}
+	}
+	var x=document.getElementById("textBox");	
+	var y=document.getElementById('modify').className='btnNormal';
+	var z=document.getElementById('dlt').className='btnNormal';
+
+
+function fn(){
+ 	var z=document.getElementById('dispArr');
+	if(checkArr()){
+		//alert("yes");
+
+		var y=document.getElementById('modify').className='btnNormal';
+		var z=document.getElementById('dlt').className='btnNormal';
+
+		var i = 1;
+		newArr.innerHTML = "<br><input type='text'id='newElement' placeholder='Enter new element'+ i>"
+	}
+
+
+
+	//chk if element is present
+	function checkArr(){
+		for(i=0;i<arr.length;i++){
+			if(x.value==arr[i])
+			return true;
+		}
+		return false;
+	}
+}
+
+	function modifyIt(){
+		var x=document.getElementById("textBox");
+		var q=document.getElementById("newElement");
+		for(let i=0;i<arr.length;i++){
+			if(x.value==arr[i]){
+				arr.splice(i,1,q.value);
+			}
+		}
+		display();
+	}
+
+	function deleteIt(){
+		var x=document.getElementById("textBox");
+		for(let i=0;i<arr.length;i++){
+			if(x.value==arr[i]){
+				arr.splice(i,1);
+			}
+		}
+		display();
+	}
+
+</script>
+</body>
